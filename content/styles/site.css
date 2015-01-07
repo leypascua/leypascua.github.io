@@ -12,6 +12,11 @@ body
 	max-width: 960px;
 }
 
+.hidden
+{
+    visibility: hidden;
+}
+
 .responsive
 {
 	width: 100%;
