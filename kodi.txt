@@ -54,8 +54,14 @@ http://204.107.27.137/live/20.high.stream/playlist.m3u8?id=0ad5aac39bb13fbe9282d
 http://worldlive-ios.arirang.co.kr/arirang/arirangtvworldios.mp4.m3u8
 #EXTINF:0 tvg-name="KBS World" tvg-language="Korean" tvg-country="MY" tvg-id="KBS World" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/KBS_World_%282009%29.svg/2000px-KBS_World_%282009%29.svg.png" group-title="Family",KBS World (Family) (MY) (Korean)
 rtmp://118.97.183.196/jhos//kbs
-#EXTINF:0 tvg-name="NHK WORLD" tvg-language="English" tvg-country="JP" tvg-id="NHK" tvg-logo="http://wptschedule.org/ulphoto/wpt_1328817746.jpg"
+#EXTINF:0 tvg-name="NHK WORLD" tvg-language="English" tvg-country="JP" tvg-id="NHK World" tvg-logo="http://wptschedule.org/ulphoto/wpt_1328817746.jpg" group-title="News",NHK World HD
 http://nhkwglobal-i.akamaihd.net/hls/live/225446/nhkwstv/index_2100.m3u8
+#EXTINF:0 tvg-name="Deutsche Welle Asien" tvg-language="English" tvg-country="DE" tvg-id="Deutsche Welle Asien" group-title="News",Deutsche Welle Asien
+http://www.metafilegenerator.de/DWelle/tv-asia/ios/master.m3u8
+#EXTINF:0 tvg-name="CNN" tvg-language="English" tvg-country="US" tvg-id="CNN" group-title="News",CNN International (LQ)
+http://d1hya96e2cm7qi.cloudfront.net/Live/_definst_/sweetbcha1novD177_W_150.sdp/media_7419.m3u8
+#EXTINF:0 tvg-name="CNBC" tvg-language="English" tvg-country="US" tvg-id="CNBC" group-title="News",CNBC (US)
+http://origin2.live.web.tv.streamprovider.net/streams/3bc166ba3776c04e987eb242710e75c0/index.m3u8
 #EXTINF:0 tvg-name="BBC News" tvg-language="English" tvg-country="UK" tvg-id="BBC News" tvg-logo="http://static.bbcverticals.com/wwfeatures/tv/assets/logos/16x9/bbc-world-news.png" group-title="News",BBC News (News) (UK) (English)
 http://204.107.27.137/live/27.high.stream/playlist.m3u8?id=0ad5aac39bb13fbe9282d2d14f10dee3c3ba733500374d6cbc56d695fbc89f02332edd48ae61427e24a5fa9596760b7e05d03d4e96e0acff6b11e50451425c95b30f9bc8bd212b880c0fc21f6c4cefdeedc375021c84c62efcbd6f9beea8eb52ab3cd241fa275ffb2cbe7cb5b00d4a96c279bedf1c174a38833b12a17212095dbe2e49384837874c2ffbd1e39c35ea616b7ae76a1ecfabc0
 #EXTINF:0 tvg-name="ABC News" tvg-language="English" tvg-country="US" tvg-id="ABC News" tvg-logo="http://a.abcnews.go.com/images/US/abc_news_default_2000x2000_update_16x9t_384.jpg" group-title="News",ABC News (News) (US) (English)
@@ -64,6 +70,8 @@ http://abclive.abcnews.com/i/abc_live4@136330/index_800_av-b.m3u8
 http://aljazeera-eng-apple-live.adaptive.level3.net/apple/aljazeera/english/appleman.m3u8
 #EXTINF:0 tvg-name="Bloomberg" tvg-language="English" tvg-country="US" tvg-id="Bloomberg" tvg-logo="http://www.novacable.com/images/logo_Bloomberg_TV.gif" group-title="News",Bloomberg (News) (US) (English)
 http://cdn3.videos.bloomberg.com/btv/us/master.m3u8
+#EXTINF:0 tvg-name="RT News HD" tvg-language="English" tvg-country="RU" tvg-id="RT News HD" tvg-logo="https://i0.wp.com/upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Russia-today-logo.svg/300px-Russia-today-logo.svg.png" group-title="News",RT News HD (News) (RU) (English)
+http://rt-a.akamaihd.net/ch_04@325608/720p.m3u8
 #EXTINF:0 tvg-name="Euronews" tvg-language="English" tvg-country="UK" tvg-id="Euronews" tvg-logo="http://bell-vs-rogers.com/channellogos/cid382euronews.jpg" group-title="News",Euronews (News) (UK) (English)
 http://fr-par-iphone-2.cdn.hexaglobe.net/streaming/euronews_ewns/ipad_en.m3u8
 #EXTINF:0 tvg-name="France 24" tvg-language="English" tvg-country="FR" tvg-id="France 24" tvg-logo="http://www.ecfr.eu/page/-/France_24.png?v=1440585546204" group-title="News",France 24 (News) (FR) (English)
