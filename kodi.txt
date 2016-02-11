@@ -36,6 +36,8 @@ http://tv-tikilive-live.hls.adaptive.level3.net/show_demotiki/81/amlst:mainstrea
 http://tv-tikilive-live.hls.adaptive.level3.net/show_demotiki/63/amlst:mainstream/demotiki63.m3u8?op_id=19&userId=0&channelId=41251&stime=1455153995&etime=1455240395&token=01286d76adc69cc9d54cf
 #EXTINF:0 tvg-name="PBS" tvg-id="PBS", PBS
 http://tv-tikilive-live.hls.adaptive.level3.net/show_demotiki/207/amlst:mainstream/demotiki207.m3u8?op_id=19&userId=0&channelId=41053&stime=1455154319&etime=1455240719&token=0dc3c83e49423fb13a211
+#EXTINF:0 tvg-name="Discovery" tvg-id="Discovery", Discovery
+http://tv-tikilive-live.hls.adaptive.level3.net/show_demotiki/11/amlst:mainstream/demotiki11.m3u8?op_id=19&userId=0&channelId=40686&stime=1455154372&etime=1455240772&token=0d111ee04ee0769d33758
 #EXTINF:0 tvg-name="Arirang TV World" tvg-language="English" tvg-country="KR" tvg-id="Arirang TV World" tvg-logo="http://www.vasiantv.com/wp-content/uploads/2012/12/arirang-300x200.jpg" group-title="Documentary",Arirang TV World (Documentary) (KR) (English)
 http://worldlive-ios.arirang.co.kr/arirang/arirangtvworldios.mp4.m3u8
 #EXTINF:0 tvg-name="KBS World" tvg-language="Korean" tvg-country="MY" tvg-id="KBS World" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/KBS_World_%282009%29.svg/2000px-KBS_World_%282009%29.svg.png" group-title="Family",KBS World (Family) (MY) (Korean)
