@@ -4,6 +4,8 @@
 http://62.210.251.32:88/live/sb/sb/324.m3u8
 #EXTINF:0 tvg-name="Discovery Turbo" tvg-language="English" tvg-country="UK" tvg-id="Discovery Turbo" tvg-logo="http://img3.wikia.nocookie.net/__cb20100413144122/logopedia/images/c/cb/Discovery_Turbo_2009.png" group-title="Documentary",Discovery Turbo (Documentary) (UK) (English)
 http://62.210.251.32:88/live/sb/sb/241.m3u8
+#EXTINF:0 tvg-name="Nickelodeon" tvg-language="English" tvg-country="US" tvg-id="Nick",Nickelodeon
+http://tv-tikilive-live.hls.adaptive.level3.net/show_demotiki/97/amlst:mainstream/playlist.m3u8?op_id=19&userId=0&channelId=40648&stime=1455153362&etime=1455239762&token=047bc4b09963ad1896bf8
 #EXTINF:0 tvg-name="BBC 1" tvg-language="English" tvg-country="UK" tvg-id="BBC 1" tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/f/fb/BBC_One_logo.svg/250px-BBC_One_logo.svg.png" group-title="Entertainment",BBC 1 (Entertainment) (UK) (English)
 http://198.179.30.109/live/14.high.stream/playlist.m3u8?id=0ad5aac39bb13fbe9282d2d14f10dee3c3ba733500374d6cbc56d695fbc89f02332edd48ae61427e24a5fa9596760b7e05d03d4e96e0acff6b11e50451425c95b30f9bc8bd212b880c0fc21f6c4cefdeedc375021c84c62efcbd6f9beea8eb52ab3cd241fa275ffb2cbe7cb5b00d4a96c279bedf1c174a38833b12a17212095dbe2e49384837874c2ffbd1e39c35ea616b7ae76a1ecfabc0
 #EXTINF:0 tvg-name="BBC 2" tvg-language="English" tvg-country="UK" tvg-id="BBC 2" tvg-logo="http://nowwatchtvlive.me/wp-content/uploads/2011/07/BBC_Two_logo.jpg" group-title="Entertainment",BBC 2 (Entertainment) (UK) (English)
@@ -26,6 +28,14 @@ http://204.107.27.137/live/1829.high.stream/playlist.m3u8?id=0ad5aac39bb13fbe928
 http://204.107.27.137/live/20.high.stream/playlist.m3u8?id=0ad5aac39bb13fbe9282d2d14f10dee3c3ba733500374d6cbc56d695fbc89f02332edd48ae61427e24a5fa9596760b7e05d03d4e96e0acff6b11e50451425c95b30f9bc8bd212b880c0fc21f6c4cefdeedc375021c84c62efcbd6f9beea8eb52ab3cd241fa275ffb2cbe7cb5b00d4a96c279bedf1c174a38833b12a17212095dbe2e49384837874c2ffbd1e39c35ea616b7ae76a1ecfabc0
 #EXTINF:0 tvg-name="Redbull TV" tvg-language="English" tvg-country="UK" tvg-id="Redbull TV" tvg-logo="http://www.redbull.com/cs/RedBull2/images/branding/redbull-tv-logo-2x.png" group-title="Sports",Redbull TV (Sports) (UK) (English)
 http://sacapunta.eltelon.com/channels/redbulltv/playlist.m3u8
+#EXTINF:0 tvg-name="CW", tvg-id="CW", CW
+http://tv-tikilive-live.hls.adaptive.level3.net/show_demotiki/65/amlst:mainstream/demotiki65.m3u8?op_id=19&userId=0&channelId=40638&stime=1455153867&etime=1455240267&token=03a6ce483c010cc8873f2
+#EXTINF:0 tvg-name="TFC" tvg-language="Filipino" tvg-country="US" tvg-id="TFC", TFC
+http://tv-tikilive-live.hls.adaptive.level3.net/show_demotiki/81/amlst:mainstream/demotiki81.m3u8?op_id=19&userId=0&channelId=40637&stime=1455153742&etime=1455240142&token=0dbedbf1ffdfe86725438
+#EXTINF:0 tvg-name="CBS" tvg-id="CBS", CBS
+http://tv-tikilive-live.hls.adaptive.level3.net/show_demotiki/63/amlst:mainstream/demotiki63.m3u8?op_id=19&userId=0&channelId=41251&stime=1455153995&etime=1455240395&token=01286d76adc69cc9d54cf
+#EXTINF:0 tvg-name="PBS" tvg-id="PBS", PBS
+http://tv-tikilive-live.hls.adaptive.level3.net/show_demotiki/207/amlst:mainstream/demotiki207.m3u8?op_id=19&userId=0&channelId=41053&stime=1455154319&etime=1455240719&token=0dc3c83e49423fb13a211
 #EXTINF:0 tvg-name="Arirang TV World" tvg-language="English" tvg-country="KR" tvg-id="Arirang TV World" tvg-logo="http://www.vasiantv.com/wp-content/uploads/2012/12/arirang-300x200.jpg" group-title="Documentary",Arirang TV World (Documentary) (KR) (English)
 http://worldlive-ios.arirang.co.kr/arirang/arirangtvworldios.mp4.m3u8
 #EXTINF:0 tvg-name="KBS World" tvg-language="Korean" tvg-country="MY" tvg-id="KBS World" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/KBS_World_%282009%29.svg/2000px-KBS_World_%282009%29.svg.png" group-title="Family",KBS World (Family) (MY) (Korean)
