@@ -1,16 +1,21 @@
 (function () {
   function calcYxp() {
+    const yearsXpElement = document.getElementById('years-xp');
+    if (!yearsXpElement) return;
+
     const startDate = new Date('2006-07-01');
     const today = new Date();
     const yearsXp = Math.floor(
       (today - startDate) / (365.25 * 24 * 60 * 60 * 1000)
     );
-    document.getElementById('years-xp').textContent = yearsXp;
+    yearsXpElement.textContent = yearsXp;
   }
 
   function setupNavHeader() {
     const navHeader = document.querySelector('.nav-header');
     const mainHeader = document.getElementById('main-header');
+    
+    if (!navHeader || !mainHeader) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -73,7 +78,19 @@
     updateThemeIcon();
   }
 
-  window.addEventListener('load', () => {
+  function removeLoadingOverlay() {
+    const overlay = document.querySelector('.loading-overlay');
+    if (!overlay) return;
+
+    window.addEventListener('load', () => {
+      document.body.classList.add('loaded');
+      overlay.classList.add('loaded');
+    });
+  }
+
+  // Initialize everything after DOM is ready
+  document.addEventListener('DOMContentLoaded', () => {
+    removeLoadingOverlay();
     calcYxp();
     setupNavHeader();
     setupThemeSwitch();

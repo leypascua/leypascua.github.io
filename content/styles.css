@@ -43,6 +43,52 @@ body {
   background: var(--bg-color);
   padding: var(--spacing-xl) var(--spacing-lg);
   transition: background-color 0.3s ease;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+body.loaded {
+  opacity: 1;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg-color);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loading-overlay.loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid var(--text-dark);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .nav-header {
@@ -67,11 +113,7 @@ body {
   left: 0;
   right: 0;
   height: var(--gradient-height);
-  background: linear-gradient(
-    90deg,
-    var(--primary-color),
-    var(--primary-hover)
-  );
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-hover));
 }
 
 .nav-content {
@@ -158,11 +200,7 @@ body {
   left: 0;
   right: 0;
   height: 12px;
-  background: linear-gradient(
-    90deg,
-    var(--primary-color),
-    var(--primary-hover)
-  );
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-hover));
 }
 
 .content {
@@ -356,6 +394,7 @@ a:hover {
   gap: 8px;
   box-shadow: var(--card-shadow);
   transition: all 0.3s ease;
+  z-index: 1001;
 }
 
 .theme-switch:hover {
