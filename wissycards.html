@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math Flashcards!</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Comic Sans MS', 'Chalkboard SE', 'Segoe UI', sans-serif;
+      background: #f0f8ff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+      padding: 32px 28px 28px;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #e74c3c;
+      font-size: 1.8rem;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .subtitle {
+      color: #7f8c8d;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      font-size: 1.1rem;
+      color: #2c3e50;
+    }
+
+    .stats span {
+      font-weight: 700;
+    }
+
+    .score { color: #27ae60; }
+    .level-text { color: #3498db; }
+
+    .timer {
+      font-size: 4.5rem;
+      font-weight: 900;
+      color: #e74c3c;
+      background: #ffeaa7;
+      padding: 10px 24px;
+      border-radius: 50px;
+      display: inline-block;
+      min-width: 60px;
+      text-align: center;
+    }
+
+    .question {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin: 24px 0 16px;
+      min-height: 60px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      font-size: 2.2rem;
+      text-align: center;
+      padding: 14px 18px;
+      border: 3px solid #d5dbdb;
+      border-radius: 14px;
+      outline: none;
+      margin-bottom: 12px;
+      transition: border-color 0.2s;
+    }
+
+    input[type="text"]:focus {
+      border-color: #3498db;
+    }
+
+    button {
+      background: #3498db;
+      color: #ffffff;
+      border: none;
+      padding: 14px 32px;
+      font-size: 1.2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    button:hover {
+      background: #2980b9;
+    }
+
+    button:active {
+      transform: scale(0.96);
+    }
+
+    .feedback {
+      margin-top: 16px;
+      font-size: 1.6rem;
+      min-height: 2.5rem;
+      font-weight: 700;
+    }
+
+    .correct { color: #27ae60; }
+    .incorrect { color: #e74c3c; }
+
+    @keyframes flashCorrect {
+      0% { background: #ffffff; }
+      50% { background: #d4edda; }
+      100% { background: #ffffff; }
+    }
+
+    @keyframes flashIncorrect {
+      0% { background: #ffffff; }
+      50% { background: #f8d7da; }
+      100% { background: #ffffff; }
+    }
+
+    .flash-correct { animation: flashCorrect 0.6s ease; }
+    .flash-incorrect { animation: flashIncorrect 0.6s ease; }
+
+    .game-over {
+      display: none;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    .game-over h2 {
+      color: #e74c3c;
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    .final-score {
+      font-size: 1.5rem;
+      margin: 8px 0 4px;
+      color: #2c3e50;
+    }
+
+    .mistakes-label {
+      font-size: 1.1rem;
+      color: #7f8c8d;
+      margin-bottom: 20px;
+    }
+
+    .restart-btn {
+      background: #27ae60;
+      padding: 12px 32px;
+      font-size: 1.1rem;
+      margin-top: 14px;
+    }
+
+    .restart-btn:hover {
+      background: #219a52;
+    }
+
+    .level-badge {
+      display: inline-block;
+      background: #f9e79f;
+      color: #8e44ad;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-left: 10px;
+    }
+
+    .star {
+      color: #f39c12;
+    }
+
+    /* Responsive: scale down for small phones */
+    @media (max-width: 480px) {
+      body {
+        padding: 12px;
+      }
+
+      .card {
+        padding: 24px 20px 22px;
+        max-width: 100%;
+        border-radius: 16px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .subtitle {
+        font-size: 0.85rem;
+      }
+
+      .stats {
+        font-size: 1rem;
+      }
+
+      .timer {
+        font-size: 3.2rem;
+        padding: 8px 18px;
+        min-width: 48px;
+      }
+
+      .question {
+        font-size: 2rem;
+        margin: 20px 0 14px;
+        min-height: 48px;
+      }
+
+      input[type="text"] {
+        font-size: 1.8rem;
+        padding: 12px 16px;
+      }
+
+      button {
+        font-size: 1.1rem;
+        padding: 12px 24px;
+      }
+
+      .feedback {
+        font-size: 1.4rem;
+        min-height: 2rem;
+      }
+
+      .game-over h2 {
+        font-size: 1.5rem;
+      }
+
+      .final-score {
+        font-size: 1.3rem;
+      }
+    }
+
+    /* Extra small phones (iPhone SE etc.) */
+    @media (max-width: 350px) {
+      .timer {
+        font-size: 2.6rem;
+      }
+
+      .question {
+        font-size: 1.8rem;
+      }
+
+      input[type="text"] {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Math Flashcards!</h1>
+    <p class="subtitle">Practice your math skills</p>
+
+    <div class="stats">
+      <span>Score: <span class="score" id="score">0</span></span>
+      <span>Level: <span class="level-text" id="level">1</span></span>
+    </div>
+
+    <div class="timer" id="timer">6</div>
+    <div class="question" id="question"></div>
+    <input type="text" id="answerInput" placeholder="?" autocomplete="off" maxlength="3">
+    <button id="submitBtn">Submit</button>
+    <div class="feedback" id="feedback"></div>
+
+    <div class="game-over" id="gameOver">
+      <h2>Game Over!</h2>
+      <p class="mistakes-label">You made <span id="finalMistakes">0</span> mistakes.</p>
+      <p class="final-score">Final Score: <strong id="finalScore">0</strong></p>
+      <button class="restart-btn" id="restartBtn">Play Again</button>
+    </div>
+  </div>
+
+  <script>
+    /* ==================== Game State ==================== */
+    let score = 0;
+    let mistakes = 0;
+    let level = 1;
+    let consecutiveCorrect = 0;
+    let timerInterval = null;
+    let timeLeft = 6;
+    let q = null;
+    let questionCounts = {}; // { "7 + 5": 3 } — tracks correct answers per question
+
+    /* ==================== DOM Refs ==================== */
+    const scoreEl = document.getElementById('score');
+    const levelEl = document.getElementById('level');
+    const timerEl = document.getElementById('timer');
+    const questionEl = document.getElementById('question');
+    const answerInput = document.getElementById('answerInput');
+    const submitBtn = document.getElementById('submitBtn');
+    const feedbackEl = document.getElementById('feedback');
+    const gameOverEl = document.getElementById('gameOver');
+    const finalScoreEl = document.getElementById('finalScore');
+    const finalMistakesEl = document.getElementById('finalMistakes');
+    const restartBtn = document.getElementById('restartBtn');
+
+    /* ==================== Question Generation ==================== */
+    function generateRawQuestion() {
+      const ops = ['+', '-', '*'];
+      const op = ops[Math.floor(Math.random() * 3)];
+      let a, b;
+
+      if (op === '+') {
+        a = Math.floor(Math.random() * 10);
+        b = Math.floor(Math.random() * 10);
+      } else if (op === '-') {
+        a = Math.floor(Math.random() * 9) + 1;
+        b = Math.floor(Math.random() * a);
+      } else {
+        a = Math.floor(Math.random() * 10);
+        b = Math.floor(Math.random() * 10);
+      }
+
+      let answer;
+      if (op === '+') answer = a + b;
+      else if (op === '-') answer = a - b;
+      else answer = a * b;
+
+      return { question: a + ' ' + op + ' ' + b, answer };
+    }
+
+    function generateQuestion() {
+      let attempts = 0;
+      const maxAttempts = 1000;
+      let question;
+
+      do {
+        question = generateRawQuestion();
+        attempts++;
+        // Safety: if all questions are exhausted, reset tracking and allow repeats
+        if (attempts > maxAttempts) {
+          questionCounts = {};
+          break;
+        }
+      } while (questionCounts[question.question] >= 5);
+
+      return question;
+    }
+
+    /* ==================== Timer ==================== */
+    function startTimer() {
+      timeLeft = 6;
+      timerEl.textContent = timeLeft;
+      clearInterval(timerInterval);
+      timerInterval = setInterval(function() {
+        timeLeft--;
+        timerEl.textContent = timeLeft;
+        if (timeLeft <= 2) {
+          timerEl.style.color = '#e74c3c';
+        }
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          handleMistake();
+        }
+      }, 1000);
+    }
+
+    /* ==================== Mistake Handling ==================== */
+    function handleMistake() {
+      clearInterval(timerInterval);
+      timerInterval = null;
+      mistakes++;
+      consecutiveCorrect = 0;
+      if (mistakes >= 3) {
+        endGame();
+        return;
+      }
+      // showFeedback(false) handles display only; mistakes already incremented here
+      showMistakeFeedback(q.answer);
+    }
+
+    /* ==================== Feedback ==================== */
+    function showFeedback(isCorrect, answer, shouldAdvance) {
+      clearInterval(timerInterval);
+      timerInterval = null;
+      feedbackEl.textContent = '';
+      const card = document.querySelector('.card');
+
+      if (isCorrect) {
+        // Track correct answers per question; retire after 5 correct
+        const key = q.question;
+        questionCounts[key] = (questionCounts[key] || 0) + 1;
+
+        consecutiveCorrect++;
+        score++;
+        scoreEl.textContent = score;
+        levelEl.textContent = level;
+
+        if (consecutiveCorrect >= 10) {
+          level++;
+          levelEl.textContent = level;
+          showLevelUp();
+          consecutiveCorrect = 0; // Reset after leveling up so it doesn't trigger every answer
+        }
+
+        feedbackEl.textContent = '✅ Correct!';
+        feedbackEl.className = 'feedback correct';
+        card.className = 'card flash-correct';
+        setTimeout(() => { card.className = 'card'; }, 600);
+
+        if (shouldAdvance !== false) {
+          showQuestion(generateQuestion());
+        }
+      } else {
+        consecutiveCorrect = 0;
+
+        feedbackEl.textContent = '❌ Wrong! The answer was ' + answer;
+        feedbackEl.className = 'feedback incorrect';
+        card.className = 'card flash-incorrect';
+        setTimeout(() => { card.className = 'card'; }, 600);
+
+        if (shouldAdvance !== false) {
+          showQuestion(generateQuestion());
+        }
+      }
+    }
+
+    function showMistakeFeedback(answer) {
+      feedbackEl.textContent = '❌ Wrong! The answer was ' + answer;
+      feedbackEl.className = 'feedback incorrect';
+      const card = document.querySelector('.card');
+      card.className = 'card flash-incorrect';
+      setTimeout(() => { card.className = 'card'; }, 600);
+      showQuestion(generateQuestion());
+    }
+
+    function showLevelUp() {
+      levelEl.innerHTML = 'Level <span class="level-text">' + level + '</span>';
+      feedbackEl.textContent = 'Level up! You reached Level ' + level + '.';
+      feedbackEl.className = 'feedback correct';
+    }
+
+    /* ==================== Game Flow ==================== */
+    function endGame() {
+      gameOverEl.style.display = 'block';
+      // Hide question elements to avoid overflow on game-over screen
+      timerEl.style.display = 'none';
+      questionEl.style.display = 'none';
+      answerInput.style.display = 'none';
+      submitBtn.style.display = 'none';
+      feedbackEl.style.display = 'none';
+      finalScoreEl.textContent = score;
+      finalMistakesEl.textContent = mistakes;
+    }
+
+    function restart() {
+      score = 0;
+      mistakes = 0;
+      level = 1;
+      consecutiveCorrect = 0;
+      gameOverEl.style.display = 'none';
+      // Restore question elements
+      timerEl.style.display = 'block';
+      questionEl.style.display = 'block';
+      answerInput.style.display = 'block';
+      submitBtn.style.display = 'block';
+      feedbackEl.style.display = 'block';
+      showQuestion(generateQuestion());
+    }
+
+    /* ==================== Event Handlers ==================== */
+    submitBtn.addEventListener('click', function() {
+      const input = answerInput.value.trim();
+      if (!input) return;
+      const num = Number(input);
+      if (isNaN(num)) return;
+      if (num === q.answer) {
+        showFeedback(true, q.answer);
+      } else {
+        handleMistake();
+      }
+      answerInput.value = '';
+    });
+
+    answerInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        const input = answerInput.value.trim();
+        if (!input) return;
+        const num = Number(input);
+        if (isNaN(num)) return;
+        if (num === q.answer) {
+          showFeedback(true, q.answer);
+        } else {
+          handleMistake();
+        }
+        answerInput.value = '';
+      }
+    });
+
+    restartBtn.addEventListener('click', restart);
+
+    /* ==================== Start Game ==================== */
+    function showQuestion(question) {
+      q = question;
+      questionEl.textContent = q.question;
+      answerInput.value = '';
+      feedbackEl.textContent = '';
+      startTimer();
+    }
+
+    // Kick off the first round
+    showQuestion(generateQuestion());
+  </script>
+</body>
+</html>
